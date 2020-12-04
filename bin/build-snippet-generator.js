@@ -22,9 +22,10 @@ const escapedSnippetSource = jsStringEscape(snippetSource)
 const compiledSnippet = snippetSource
   .replace(
     /%FONT_STYLESHEET%/g,
-    'https://fonts.googleapis.com/css?family=Fira+Mono|Merriweather:700|Montserrat:700'
+    'https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Montserrat:900'
   )
-  .replace(/%FONT_DISPLAY%/g, 'swap');
+  .replace(/%FONT_DISPLAY%/g, 'swap')
+  .replace(/%UNIQUE_ID%/g, Math.floor(Math.random() * 1e6).toString(16));
 
 // Build and write the snippet generator page
 const builtSnippetGenerator = buildSnippetGenerator({
